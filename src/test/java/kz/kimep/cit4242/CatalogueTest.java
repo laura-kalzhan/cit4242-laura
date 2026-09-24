@@ -8,19 +8,19 @@ class CatalogueTest {
 
     @Test
     void loadsAllBooksFromCsv() {
-        Catalogue catalogue = new Catalogue("books.csv");
+        Catalogue catalogue = new Catalogue(new CsvBookSource("books.csv"));
         assertEquals(5, catalogue.size());
     }
 
     @Test
     void findsBookByTitle() {
-        Catalogue catalogue = new Catalogue("books.csv");
-        assertEquals(464, catalogue.findByTitle("clean code").orElseThrow().getPages());
+        Catalogue catalogue = new Catalogue(new InMemoryBookSource());
+        assertEquals(464, catalogue.findByTitle("clean code").orElseThrow().pages());
     }
 
     @Test
     void returnsOnlyLongBooks() {
-        Catalogue catalogue = new Catalogue("books.csv");
-        assertEquals(4, catalogue.longBooks().size());
+        Catalogue catalogue = new Catalogue(new InMemoryBookSource());
+        assertEquals(2, catalogue.longBooks().size());
     }
 }

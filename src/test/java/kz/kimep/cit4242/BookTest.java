@@ -13,16 +13,24 @@ class BookTest {
     void equalBooksHaveEqualHashCodes() {
         Book x = new Book("Clean Code", "Robert C. Martin", 464);
         Book y = new Book("Clean Code", "Robert C. Martin", 464);
-        assertNotSame(x, y);
-        assertEquals(x, y);
-        assertEquals(x.hashCode(), y.hashCode());
+        assertNotSame(x, y);                       
+        assertEquals(x, y);                        
+        assertEquals(x.hashCode(), y.hashCode());  
     }
 
     @Test
     void hashSetFindsEqualBook() {
         Set<Book> set = new HashSet<>();
         set.add(new Book("Clean Code", "Robert C. Martin", 464));
+        set.add(new Book("Clean Code", "Robert C. Martin", 464));
+        assertEquals(1, set.size());
         assertTrue(set.contains(new Book("Clean Code", "Robert C. Martin", 464)));
+    }
+
+    @Test
+    void toStringShowsComponents() {
+        Book b = new Book("Clean Code", "Robert C. Martin", 464);
+        assertTrue(b.toString().contains("464"));
     }
 
     @Test
