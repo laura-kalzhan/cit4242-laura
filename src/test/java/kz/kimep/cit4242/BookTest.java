@@ -13,9 +13,9 @@ class BookTest {
     void equalBooksHaveEqualHashCodes() {
         Book x = new Book("Clean Code", "Robert C. Martin", 464);
         Book y = new Book("Clean Code", "Robert C. Martin", 464);
-        assertNotSame(x, y);                       // x == y is false
-        assertEquals(x, y);                        // equals compares components
-        assertEquals(x.hashCode(), y.hashCode());  // hashCode agrees with equals
+        assertNotSame(x, y);                       
+        assertEquals(x, y);                        
+        assertEquals(x.hashCode(), y.hashCode());  
     }
 
     @Test

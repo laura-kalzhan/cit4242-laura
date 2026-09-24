@@ -12,14 +12,12 @@ class CatalogueTest {
         assertEquals(5, catalogue.size());
     }
 
-    /** Uses the in-memory source: this test touches no file. */
     @Test
     void findsBookByTitle() {
         Catalogue catalogue = new Catalogue(new InMemoryBookSource());
         assertEquals(464, catalogue.findByTitle("clean code").orElseThrow().pages());
     }
 
-    /** Uses the in-memory source: this test touches no file. */
     @Test
     void returnsOnlyLongBooks() {
         Catalogue catalogue = new Catalogue(new InMemoryBookSource());

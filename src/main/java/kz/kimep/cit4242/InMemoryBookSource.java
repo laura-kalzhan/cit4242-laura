@@ -2,7 +2,6 @@ package kz.kimep.cit4242;
 
 import java.util.List;
 
-/** A book source that never touches the disk. Useful in tests. */
 public class InMemoryBookSource implements BookSource {
 
     @Override
