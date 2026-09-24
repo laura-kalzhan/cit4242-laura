@@ -15,7 +15,7 @@ public class Catalogue {
     public int size() { return books.size(); }
 
     public Optional<Book> findByTitle(String title) {
-        return books.stream().filter(b -> b.getTitle().equalsIgnoreCase(title)).findFirst();
+        return books.stream().filter(b -> b.title().equalsIgnoreCase(title)).findFirst();
     }
 
     public List<Book> longBooks() {
